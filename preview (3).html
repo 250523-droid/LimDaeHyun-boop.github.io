@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>임대현 | Portfolio</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    :root{
+      --bg1:#f4f7fb;
+      --bg2:#eaf1ff;
+      --card:#ffffff;
+      --text:#1f2937;
+      --sub:#6b7280;
+      --line:#e5e7eb;
+      --main:#2563eb;
+      --main-soft:#eff6ff;
+      --shadow:0 18px 40px rgba(37, 99, 235, 0.08);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #ffffff 0%, transparent 30%),
+        linear-gradient(180deg, var(--bg2) 0%, var(--bg1) 42%, #ffffff 100%);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 20px 70px;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .menu {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .menu a {
+      font-size: 14px;
+      color: #4b5563;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.8);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+
+    .hero-card, .side-card, .section-card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(255,255,255,0.95);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card {
+      padding: 46px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(37,99,235,0.13), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--main);
+      background: var(--main-soft);
+      padding: 8px 14px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: 46px;
+      line-height: 1.22;
+      color: #111827;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 0;
+    }
+
+    .lead {
+      font-size: 18px;
+      color: #4b5563;
+      max-width: 92%;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--main);
+      color: white;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #1f2937;
+      border: 1px solid var(--line);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .side-stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .side-card {
+      padding: 24px 22px;
+    }
+
+    .side-title {
+      margin: 0 0 8px;
+      font-size: 15px;
+      color: var(--main);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .side-card strong {
+      display: block;
+      font-size: 24px;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .side-card p {
+      margin: 0;
+      color: #4b5563;
+      font-size: 15px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .section-card {
+      padding: 26px 24px;
+    }
+
+    .section-label {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--main);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      color: #111827;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: #111827;
+    }
+
+    .muted {
+      color: var(--sub);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .timeline-item {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 18px;
+      background: #fbfdff;
+    }
+
+    .timeline-item strong {
+      color: #111827;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .list li {
+      margin-bottom: 8px;
+      color: #374151;
+    }
+
+    .quote {
+      margin-top: 16px;
+      background: linear-gradient(135deg, #eff6ff, #f8fbff);
+      border-left: 4px solid var(--main);
+      border-radius: 16px;
+      padding: 18px;
+      color: #374151;
+      font-size: 16px;
+    }
+
+    .footer {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid-3,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .lead {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        padding: 18px 14px 50px;
+      }
+
+      .hero-card,
+      .side-card,
+      .section-card {
+        border-radius: 22px;
+      }
+
+      .hero-card {
+        padding: 34px 22px;
+      }
+
+      h1 {
+        font-size: 31px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="nav">
+      <div class="brand">임대현 포트폴리오</div>
+      <nav class="menu">
+        <a href="#about">소개</a>
+        <a href="#goal">목표</a>
+        <a href="#prepare">준비 중인 것</a>
+        <a href="#plan">다짐</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <div class="badge">GitHub Pages Portfolio</div>
+        <h1>안녕하세요,<br>정보보안 임대현입니다.</h1>
+        <p class="lead">
+          정보통신공사협회 취업을 목표로 준비하고 있으며,
+          사무자동화 자격증을 공부하면서 취업 준비를 성실하게 이어가고 있습니다.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#about">자기소개 보기</a>
+          <a class="btn btn-secondary" href="#prepare">준비 내용 보기</a>
+        </div>
+      </div>
+
+      <div class="side-stack">
+        <div class="side-card">
+          <div class="side-title">Target</div>
+          <strong>정보통신공사협회 취업</strong>
+          <p>실무 역량을 쌓고 현장에서 신뢰받는 인재로 성장하는 것이 목표입니다.</p>
+        </div>
+        <div class="side-card">
+          <div class="side-title">Now</div>
+          <strong>사무자동화 자격증 공부</strong>
+          <p>취업에 필요한 기본 역량과 실무 감각을 차근차근 준비하고 있습니다.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-3">
+      <div class="section-card">
+        <div class="section-label">관심 분야</div>
+        <h3>정보보안</h3>
+        <p class="muted">보안과 정보통신 분야에 관심을 가지고 꾸준히 배우고 있습니다.</p>
+      </div>
+      <div class="section-card">
+        <div class="section-label">강점</div>
+        <h3>성실함과 꾸준함</h3>
+        <p class="muted">작은 준비도 놓치지 않고 차근차근 쌓아가는 태도를 중요하게 생각합니다.</p>
+      </div>
+      <div class="section-card">
+        <div class="section-label">방향성</div>
+        <h3>실무형 인재 성장</h3>
+        <p class="muted">배운 내용을 실제 업무에 연결할 수 있는 사람으로 성장하고 싶습니다.</p>
+      </div>
+    </section>
+
+    <section id="about" class="section-card" style="margin-bottom:22px;">
+      <div class="section-label">About Me</div>
+      <h2>자기소개</h2>
+      <p class="muted">
+        안녕하세요. 정보보안 분야에 관심을 가지고 성장하고 있는 임대현입니다.
+        저는 현재 정보통신공사협회 취업을 목표로 준비하고 있으며,
+        사무자동화 자격증을 공부하면서 취업 준비를 하고 있습니다.
+      </p>
+      <div class="quote">
+        꾸준함과 성실함을 바탕으로 실력을 쌓아,
+        정보보안과 정보통신 분야에서 믿을 수 있는 인재가 되는 것이 저의 목표입니다.
+      </div>
+    </section>
+
+    <section class="info-grid">
+      <div id="goal" class="section-card">
+        <div class="section-label">Goal</div>
+        <h2>나의 목표</h2>
+        <p class="muted">
+          저의 가장 큰 목표는 정보통신공사협회에 취업하여 관련 분야의 실무를 배우고,
+          현장에서 필요한 역량을 갖춘 인재로 성장하는 것입니다.
+        </p>
+      </div>
+
+      <div id="prepare" class="section-card">
+        <div class="section-label">Now Preparing</div>
+        <h2>현재 준비 중인 것</h2>
+        <ul class="list">
+          <li>사무자동화 자격증 공부</li>
+          <li>취업 준비를 위한 기본 역량 정리</li>
+          <li>정보보안 및 정보통신 분야 이해 넓히기</li>
+          <li>실무에 도움이 되는 태도와 습관 만들기</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="plan" class="section-card">
+      <div class="section-label">My Promise</div>
+      <h2>나의 다짐</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>1. 꾸준히 공부하겠습니다</strong>
+          자격증과 취업 준비를 성실하게 이어가며 기본기를 탄탄히 쌓겠습니다.
+        </div>
+        <div class="timeline-item">
+          <strong>2. 실무에 가까운 인재가 되겠습니다</strong>
+          단순한 공부에 그치지 않고, 실제 업무에 적용할 수 있는 역량을 키우겠습니다.
+        </div>
+        <div class="timeline-item">
+          <strong>3. 신뢰받는 사람이 되겠습니다</strong>
+          맡은 일을 책임감 있게 수행하는 태도를 갖춘 인재로 성장하겠습니다.
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © 2026 임대현 Portfolio · GitHub Pages Ready
+    </div>
+  </div>
+</body>
+</html>
